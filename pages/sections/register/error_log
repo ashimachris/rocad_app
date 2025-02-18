@@ -1,0 +1,2 @@
+[11-Jul-2024 08:36:00 UTC] PHP Warning:  require_once(../../db_con/config.php): failed to open stream: No such file or directory in /home/rocad/public_html/app/rocad_admin/pages/sections/register/main_header.php on line 1
+[11-Jul-2024 08:36:00 UTC] PHP Fatal error:  require_once(): Failed opening required '../../db_con/config.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/rocad/public_html/app/rocad_admin/pages/sections/register/main_header.php on line 1
