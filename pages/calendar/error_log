@@ -1,0 +1,8 @@
+[11-Dec-2023 08:08:34 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/approcad/public_html/rocad_admin/db_con/config.php on line 10
+[11-Dec-2023 08:08:34 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/db_con/config.php on line 11
+[11-Dec-2023 08:08:34 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/pages/layout/session.php on line 8
+[11-Dec-2023 08:08:34 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/pages/layout/session.php on line 8
+[11-Dec-2023 08:08:45 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/approcad/public_html/rocad_admin/db_con/config.php on line 10
+[11-Dec-2023 08:08:45 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/db_con/config.php on line 11
+[11-Dec-2023 08:08:45 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/pages/layout/session.php on line 8
+[11-Dec-2023 08:08:45 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/pages/layout/session.php on line 8
