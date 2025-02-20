@@ -1,0 +1,15 @@
+[28-Oct-2022 10:57:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/y81lb2dipjfo/public_html/rocad-cpanal/rocad_admin/db_con/config.php:10
+Stack trace:
+#0 /home/y81lb2dipjfo/public_html/rocad-cpanal/rocad_admin/pages/layout/session.php(2): require()
+#1 /home/y81lb2dipjfo/public_html/rocad-cpanal/rocad_admin/pages/layout/topmenu.php(2): include('/home/y81lb2dip...')
+#2 /home/y81lb2dipjfo/public_html/rocad-cpanal/rocad_admin/pages/dashboard_t/index.php(57): include_once('/home/y81lb2dip...')
+#3 {main}
+  thrown in /home/y81lb2dipjfo/public_html/rocad-cpanal/rocad_admin/db_con/config.php on line 10
+[11-Dec-2023 08:08:34 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/approcad/public_html/rocad_admin/db_con/config.php on line 10
+[11-Dec-2023 08:08:34 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/db_con/config.php on line 11
+[11-Dec-2023 08:08:34 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/pages/layout/session.php on line 8
+[11-Dec-2023 08:08:34 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/pages/layout/session.php on line 8
+[11-Dec-2023 08:08:45 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/approcad/public_html/rocad_admin/db_con/config.php on line 10
+[11-Dec-2023 08:08:45 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/db_con/config.php on line 11
+[11-Dec-2023 08:08:45 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/pages/layout/session.php on line 8
+[11-Dec-2023 08:08:45 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/approcad/public_html/rocad_admin/pages/layout/session.php on line 8
