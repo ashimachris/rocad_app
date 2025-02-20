@@ -1,0 +1,254 @@
+[08-May-2024 18:58:11 Africa/Lagos] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_b31cf4bef5d85361561a905bbb0ed547, O_RDWR) failed: Permission denied (13) in /home/rocad/public_html/rocad_admin/pages/dashboard/index.php on line 4
+[08-May-2024 18:58:11 Africa/Lagos] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home/rocad/public_html/rocad_admin/pages/dashboard/index.php on line 4
+[08-May-2024 18:58:11 Africa/Lagos] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_b31cf4bef5d85361561a905bbb0ed547, O_RDWR) failed: Permission denied (13) in /home/rocad/public_html/rocad_admin/pages/layout/header.php on line 3
+[08-May-2024 18:58:11 Africa/Lagos] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home/rocad/public_html/rocad_admin/pages/layout/header.php on line 3
+[08-May-2024 19:06:29 Africa/Lagos] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_b31cf4bef5d85361561a905bbb0ed547, O_RDWR) failed: Permission denied (13) in /home/rocad/public_html/rocad_admin/pages/dashboard/index.php on line 4
+[08-May-2024 19:06:29 Africa/Lagos] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home/rocad/public_html/rocad_admin/pages/dashboard/index.php on line 4
+[08-May-2024 19:06:29 Africa/Lagos] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_b31cf4bef5d85361561a905bbb0ed547, O_RDWR) failed: Permission denied (13) in /home/rocad/public_html/rocad_admin/pages/layout/header.php on line 3
+[08-May-2024 19:06:29 Africa/Lagos] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home/rocad/public_html/rocad_admin/pages/layout/header.php on line 3
+[09-May-2024 19:02:27 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/rocad_admin/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 19:06:52 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 19:06:56 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 19:07:11 Africa/Lagos] PHP Warning:  Undefined array key "admin_rocad" in /home/rocad/public_html/rocad_admin/pages/layout/session.php on line 4
+[09-May-2024 19:07:11 Africa/Lagos] PHP Warning:  Undefined array key "usergroup" in /home/rocad/public_html/rocad_admin/pages/layout/session.php on line 5
+[09-May-2024 19:07:11 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home/rocad/public_html/rocad_admin/pages/layout/session.php:8
+Stack trace:
+#0 /home/rocad/public_html/rocad_admin/pages/layout/session.php(8): mysqli_query(Object(mysqli), 'SELECT * FROM `...')
+#1 /home/rocad/public_html/rocad_admin/pages/layout/topmenu.php(2): include('/home/rocad/pub...')
+#2 /home/rocad/public_html/rocad_admin/pages/dashboard/index.php(71): include('/home/rocad/pub...')
+#3 {main}
+  thrown in /home/rocad/public_html/rocad_admin/pages/layout/session.php on line 8
+[09-May-2024 19:09:24 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 19:10:42 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 19:10:55 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 20:47:47 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 20:48:15 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 20:48:26 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 20:48:28 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:31:10 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:31:26 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:31:36 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:31:59 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:32:06 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:32:12 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:32:27 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:32:34 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:32:44 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:33:35 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:33:44 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:33:53 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:34:00 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:34:14 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:34:27 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:34:43 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:34:53 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:35:03 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:35:11 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:35:19 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:35:30 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:35:38 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:35:46 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:35:59 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:36:10 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:36:22 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:36:30 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:36:55 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:37:15 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:37:23 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:37:50 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:37:58 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:38:07 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:38:15 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:38:25 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:38:35 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:38:44 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:38:53 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 21:39:03 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 22:17:37 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[09-May-2024 22:24:25 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[10-May-2024 01:11:05 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/rocad/public_html/app/rocad_admin/pages/dashboard/main_header.php on line 215
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:34 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:35 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:35 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:35 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:35 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:35 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:35 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:36 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:36 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:36 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:36 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:36 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:36 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:37 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:37 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:37 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:37 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:37 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:37 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:41 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:41 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:41 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:41 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:41 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:41 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:42 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:42 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:42 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:42 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:42 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:42 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:43 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:43 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:43 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:43 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:43 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:43 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:44 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:44 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:44 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:44 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:44 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:44 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:48 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:48 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:48 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:48 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:48 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:48 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:49 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:49 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:49 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:49 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:49 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:49 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:52 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:52 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:52 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:52 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:52 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:52 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:53 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:53 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:53 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:53 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:53 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:53 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:54 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[18-May-2024 09:22:54 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[18-May-2024 09:22:54 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[18-May-2024 09:22:54 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[18-May-2024 09:22:54 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[18-May-2024 09:22:54 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[20-Jun-2024 07:40:31 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[20-Jun-2024 07:40:31 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[20-Jun-2024 07:40:31 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[20-Jun-2024 07:40:31 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[20-Jun-2024 07:40:31 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[20-Jun-2024 07:40:31 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[20-Jun-2024 07:40:33 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[20-Jun-2024 07:40:33 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[20-Jun-2024 07:40:33 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[20-Jun-2024 07:40:33 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[20-Jun-2024 07:40:33 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[20-Jun-2024 07:40:33 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[25-Jun-2024 17:08:40 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[25-Jun-2024 17:08:41 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[25-Jun-2024 17:08:41 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[25-Jun-2024 17:08:41 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[25-Jun-2024 17:08:41 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[25-Jun-2024 17:08:41 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[25-Jun-2024 17:08:41 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[19-Sep-2024 17:42:47 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/1040): Too many connections in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[19-Sep-2024 17:42:47 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[19-Sep-2024 17:42:47 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/layout/session.php on line 8
+[19-Sep-2024 17:42:47 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/layout/session.php on line 8
+[19-Sep-2024 17:42:56 Africa/Lagos] PHP Warning:  mysqli_connect(): (HY000/1040): Too many connections in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 10
+[19-Sep-2024 17:42:56 Africa/Lagos] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/db_con/config.php on line 11
+[19-Sep-2024 17:42:56 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 4
+[19-Sep-2024 17:42:56 Africa/Lagos] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/rocad/public_html/app/rocad_admin/pages/layout/header.php on line 3
+[19-Sep-2024 17:42:56 Africa/Lagos] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[19-Sep-2024 17:42:56 Africa/Lagos] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, bool given in /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php on line 15
+[07-Nov-2024 10:49:18 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:49:26 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:52:17 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:52:26 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:52:42 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:52:58 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:54:08 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:56:39 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:57:53 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:58:18 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:58:27 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:59:10 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 174
+[07-Nov-2024 10:59:47 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to undefined function allow_access() in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php:65
+Stack trace:
+#0 /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php(73): include()
+#1 {main}
+  thrown in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php on line 65
+[07-Nov-2024 10:59:50 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 175
+[07-Nov-2024 11:00:21 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to undefined function allow_access() in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php:65
+Stack trace:
+#0 /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php(73): include()
+#1 {main}
+  thrown in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php on line 65
+[07-Nov-2024 11:00:26 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:01:26 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 175
+[07-Nov-2024 11:02:00 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 175
+[07-Nov-2024 11:02:38 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 175
+[07-Nov-2024 11:02:46 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 175
+[07-Nov-2024 11:02:48 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 175
+[07-Nov-2024 11:03:59 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:04:06 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:04:29 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to undefined function allow_access() in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php:65
+Stack trace:
+#0 /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php(73): include()
+#1 {main}
+  thrown in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php on line 65
+[07-Nov-2024 11:04:36 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:07:38 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to undefined function allow_access() in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php:65
+Stack trace:
+#0 /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php(73): include()
+#1 {main}
+  thrown in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php on line 65
+[07-Nov-2024 11:07:47 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:08:10 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:09:06 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:09:22 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to undefined function allow_access() in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php:65
+Stack trace:
+#0 /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php(73): include()
+#1 {main}
+  thrown in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php on line 65
+[07-Nov-2024 11:09:27 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:09:46 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:09:50 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:10:25 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:10:30 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:10:49 Africa/Lagos] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/rocad/public_html/app/rocad_admin/pages/layout/topmenu.php on line 176
+[07-Nov-2024 11:13:47 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to undefined function allow_access() in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php:65
+Stack trace:
+#0 /home/rocad/public_html/app/rocad_admin/pages/dashboard/index.php(73): include()
+#1 {main}
+  thrown in /home/rocad/public_html/app/rocad_admin/pages/layout/left-sidebar.php on line 65
