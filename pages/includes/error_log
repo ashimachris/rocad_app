@@ -1,0 +1,2 @@
+[06-Jul-2024 05:35:09 UTC] PHP Warning:  include(session.php): failed to open stream: No such file or directory in /home/rocad/public_html/app/rocad_admin/pages/includes/header.php on line 2
+[06-Jul-2024 05:35:09 UTC] PHP Warning:  include(): Failed opening 'session.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/rocad/public_html/app/rocad_admin/pages/includes/header.php on line 2
