@@ -102,7 +102,7 @@
             </ul>
 
         </li>
-<li  <?php allow_access(1,1,0,0,0,1,$usergroup); ?>class="treeview">
+<li  <?php allow_access(1,1,1,0,0,1,$usergroup); ?>class="treeview">
 
             <a href="#"><i class="fa fa-globe"></i> <span>Construction Site</span>
 
@@ -143,7 +143,7 @@
             </ul>
 
         </li>
-        <li  class="treeview" <?php allow_access(1,1,0,1,0,1,$usergroup); ?>>
+        <li  class="treeview" <?php allow_access(1,1,1,1,0,1,$usergroup); ?>>
 
             <a href="#"><i class="fa fa-folder"></i> <span>Assets</span>
 
@@ -170,14 +170,14 @@
 
               </li>
 
-              <li <?php allow_access(1,1,0,1,0,1,$usergroup); ?> <?php isActive("chartjs") ?>>
+              <li <?php allow_access(1,1,1,1,0,1,$usergroup); ?> <?php isActive("chartjs") ?>>
 
                 <a href="/rocad_admin/pages/sections/tools.php"><i class="fa fa-wrench"></i>Structural Asset</a>
 
               </li>
 
 
-              <li <?php allow_access(1,1,0,1,0,1,$usergroup); ?>><a href="/rocad_admin/pages/sections/daily-plant-reports.php"><i class="fa fa-truck"></i> <span>Daily Plant Reports</span></a></li>
+              <li <?php allow_access(1,1,1,1,0,1,$usergroup); ?>><a href="/rocad_admin/pages/sections/daily-plant-reports.php"><i class="fa fa-truck"></i> <span>Daily Plant Reports</span></a></li>
 
             </ul>
 
@@ -200,10 +200,10 @@
             <li ><a href="/rocad_admin/pages/sections/requisition.php"><i class="fa fa-book"></i> <span>Requisition</span></a></li>
             <li <?php isActive("chartjs") ?>><a href="/rocad_admin/pages/sections/advance_voucher.php"><i class="fa fa-print">         
             </i> <span>Advance Voucher</span></a></li>
-            <li <?php allow_access(1,0,0,1,0,0,$usergroup); ?> <?php isActive("chartjs") ?>><a href="/rocad_admin/pages/sections/aggregate.php"><i class="fa fa-road"></i> <span>Aggregate Update</span></a></li>
-            <li <?php allow_access(1,0,0,1,0,1,$usergroup); ?>><a href="/rocad_admin/pages/sections/plant_release_sheet.php"><i class="fa fa-anchor"></i> <span>Plant Release Sheet</span></a></li>
-            <li <?php allow_access(1,0,0,0,0,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/daily_progress.php"><i class="fa fa-bar-chart"></i> <span>Work Progress</span></a></li>
-            <li <?php allow_access(1,1,0,1,0,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/loading-note.php"><i class="fa fa-exchange"></i> <span>Store Loading Request</span></a></li>
+            <li <?php allow_access(1,0,1,1,0,0,$usergroup); ?> <?php isActive("chartjs") ?>><a href="/rocad_admin/pages/sections/aggregate.php"><i class="fa fa-road"></i> <span>Aggregate Update</span></a></li>
+            <li <?php allow_access(1,0,1,1,0,1,$usergroup); ?>><a href="/rocad_admin/pages/sections/plant_release_sheet.php"><i class="fa fa-anchor"></i> <span>Plant Release Sheet</span></a></li>
+            <li <?php allow_access(1,0,1,0,0,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/daily_progress.php"><i class="fa fa-bar-chart"></i> <span>Work Progress</span></a></li>
+            <li <?php allow_access(1,1,1,1,0,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/loading-note.php"><i class="fa fa-exchange"></i> <span>Store Loading Request</span></a></li>
         </ul>
         </li>
 
@@ -232,7 +232,7 @@
         </li>
 
         
-        <li  class="treeview" <?php allow_access(1,1,1,1,1,0,$usergroup); ?> <?php isActive("chartjs") ?>>
+        <li  class="treeview" <?php allow_access(1,1,0,1,1,0,$usergroup); ?> <?php isActive("chartjs") ?>>
 
           <a href="#"><i class="fa fa-money"></i> <span>Finance</span>
 
@@ -246,7 +246,7 @@
 
           <ul class="treeview-menu">
            <li <?php allow_access(1,1,1,1,1,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/daily_report.php"><i class="fa fa-money"></i> <span>Daily Expenses</span></a></li>
-           <li <?php allow_access(1,1,1,1,1,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/expense_category.php"><i class="fa fa-money"></i> <span>Accounting</span></a></li>  
+           <li <?php allow_access(1,0,0,0,1,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/expense_category.php"><i class="fa fa-money"></i> <span>Accounting</span></a></li>  
            <li <?php allow_access(1,1,0,0,1,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/expenses.php"><i class="fa fa-money"></i> <span>Site Expenses</span></a></li>  
            <li <?php allow_access(1,1,0,0,1,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/invoices.php"><i class="fa fa-dollar"></i> <span>Invoices</span></a></li>
            <li <?php allow_access(1,1,0,0,1,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/delivery_note.php"><i class="fa fa-dollar"></i> <span>Delivery Note</span></a></li>
@@ -270,17 +270,17 @@
 
 <ul class="treeview-menu">
 
-  <li <?php allow_access(1,1,1,0,1,0,$usergroup); ?> ><a href="/rocad_admin/pages/sections/general_expense_report.php"><i class="fa fa-money"></i>General Expense Report</a></li> 
-  <li <?php allow_access(1,1,1,0,1,0,$usergroup); ?> ><a href="/rocad_admin/pages/sections/profit_loss_report.php"><i class="fa fa-money"></i>Profit & Loss Report</a></li>     
+  <li <?php allow_access(1,1,0,0,1,0,$usergroup); ?> ><a href="/rocad_admin/pages/sections/general_expense_report.php"><i class="fa fa-money"></i>General Expense Report</a></li> 
+  <li <?php allow_access(1,0,0,0,1,0,$usergroup); ?> ><a href="/rocad_admin/pages/sections/profit_loss_report.php"><i class="fa fa-money"></i>Profit & Loss Report</a></li>     
   <li ><a href="/rocad_admin/pages/sections/requisition_report.php"><i class="fa fa-book"></i>Requisition Report</a></li>
   <li ><a href="/rocad_admin/pages/sections/ad_voucher_report.php"><i class="fa fa-star"></i>Advance Voucher Report</a></li>
-  <li <?php allow_access(1,1,0,1,0,1,$usergroup); ?> ><a href="/rocad_admin/pages/sections/plant_release.php"><i class="fa fa-phone"></i>Plant Release</a></li>
-  <li <?php allow_access(1,1,0,0,1,1,$usergroup); ?>><a href="/rocad_admin/pages/sections/plant-reports.php"><i class="fa fa-road"></i>Plant Report</a></li>
-  <li <?php allow_access(1,1,0,0,1,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/aggregate_report.php"><i class="fa fa-road"></i>Aggregate Report</a></li>
-  <li <?php allow_access(1,0,0,0,0,0,$usergroup); ?> ><a href="/rocad_admin/pages/sections/progress_report.php"><i class="fa fa-archive"></i>Progress Report</a></li>   
-  <li <?php allow_access(1,1,0,1,0,0,$usergroup); ?> ><a href="/rocad_admin/pages/sections/loading_report.php"><i class="fa fa-table"></i>Store Loading Note</a></li>
-  <li <?php allow_access(1,1,0,0,1,0,$usergroup); ?> ><a href="/rocad_admin/pages/sections/requisition_report.php?w=true"><i class="fa fa-handshake-o"></i>Receiving Report</a></li>
-  <li <?php allow_access(1,1,0,1,0,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/returned_items.php"><i class="fa fa-comment"></i>Returned Items</a></li>
+  <li <?php allow_access(1,1,1,1,0,1,$usergroup); ?> ><a href="/rocad_admin/pages/sections/plant_release.php"><i class="fa fa-phone"></i>Plant Release</a></li>
+  <li <?php allow_access(1,1,1,0,0,1,$usergroup); ?>><a href="/rocad_admin/pages/sections/plant-reports.php"><i class="fa fa-road"></i>Plant Report</a></li>
+  <li <?php allow_access(1,1,1,0,0,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/aggregate_report.php"><i class="fa fa-road"></i>Aggregate Report</a></li>
+  <li <?php allow_access(1,0,1,0,0,0,$usergroup); ?> ><a href="/rocad_admin/pages/sections/progress_report.php"><i class="fa fa-archive"></i>Progress Report</a></li>   
+  <li <?php allow_access(1,1,1,1,0,0,$usergroup); ?> ><a href="/rocad_admin/pages/sections/loading_report.php"><i class="fa fa-table"></i>Store Loading Note</a></li>
+  <li <?php allow_access(1,1,0,0,0,0,$usergroup); ?> ><a href="/rocad_admin/pages/sections/requisition_report.php?w=true"><i class="fa fa-handshake-o"></i>Receiving Report</a></li>
+  <li <?php allow_access(1,1,1,1,0,0,$usergroup); ?>><a href="/rocad_admin/pages/sections/returned_items.php"><i class="fa fa-comment"></i>Returned Items</a></li>
   
 </ul>
 
