@@ -32,6 +32,10 @@ $modelType=mysqli_real_escape_string($config,$_POST["modeltype"]);
 $chasis=mysqli_real_escape_string($config,$_POST["chasis"]);
 $speed=mysqli_real_escape_string($config,$_POST["speed"]);
 $brake=mysqli_real_escape_string($config,$_POST["brake"]);
+$gear_cap=mysqli_real_escape_string($config,$_POST["gear_cap"]);
+$engine_power=mysqli_real_escape_string($config,$_POST["engine_power"]);
+$bat_cap=mysqli_real_escape_string($config,$_POST["bat_cap"]);
+$services=mysqli_real_escape_string($config,$_POST["services"]);
 $opcap=mysqli_real_escape_string($config,$_POST["opcap"]);
 $load_cap=mysqli_real_escape_string($config,$_POST["load_cap"]);
 $make=mysqli_real_escape_string($config,$_POST["make"]);
@@ -55,7 +59,7 @@ $mobile_device=mysqli_real_escape_string($config,$_POST["mobile_device"]);
 $imei_device=mysqli_real_escape_string($config,$_POST["imei_device"]);
 $operA=mysqli_real_escape_string($config,$_POST["operA"]);
 
-$upd="UPDATE `assets` SET assetname='$desc',PlantNo='$plantno',model='$model',engineType='$engtype',platen='$plateno',driver='$driver',operA='$operA',operV='$operV',site='$site',modelType='$modelType',chasis='$chasis',speed='$speed',brake='$brake',opcap='$opcap',load_cap='$load_cap',make='$make',year='$year',mobile_device='$mobile_device',imei_device='$imei_device',cost='$cost',engMake='$engMake',engSerialNo='$engSerialNo',upd_by='$preby',modelType='$modelType',Aconfiguration='$Aconfiguration',Nofaxles='$Nofaxles',NofTyre='$NofTyre',SofTyre='$SofTyre',Gweight='$Gweight',fuel_tank='$fuel_tank',radi='$radi',crank='$crank',hyd_sys='$hyd_sys',workstatus='$wsts' where id=$ids";
+$upd="UPDATE `assets` SET assetname='$desc',PlantNo='$plantno',model='$model',engineType='$engtype',platen='$plateno',driver='$driver',operA='$operA',operV='$operV',site='$site',modelType='$modelType',chasis='$chasis',speed='$speed',brake='$brake',gear_cap='$gear_cap',engine_power='$engine_power',bat_cap='$bat_cap',services='$services',opcap='$opcap',load_cap='$load_cap',make='$make',year='$year',mobile_device='$mobile_device',imei_device='$imei_device',cost='$cost',engMake='$engMake',engSerialNo='$engSerialNo',upd_by='$preby',modelType='$modelType',Aconfiguration='$Aconfiguration',Nofaxles='$Nofaxles',NofTyre='$NofTyre',SofTyre='$SofTyre',Gweight='$Gweight',fuel_tank='$fuel_tank',radi='$radi',crank='$crank',hyd_sys='$hyd_sys',workstatus='$wsts' where id=$ids";
 $qry=mysqli_query($config,$upd) or die(mysqli_error($config));
 if($qry==1){
 
@@ -130,7 +134,7 @@ input{
   <div class="wrapper">
 
     <?php include_once "../layout/topmenu.php"; ?>
-    <?php allow_access_all(1,1,0,0,0,1,$usergroup); ?>
+    <?php allow_access_all(1,1,1,1,0,1,$usergroup); ?>
     <?php include_once "../layout/left-sidebar.php"; ?>
     
 
@@ -215,6 +219,30 @@ input{
               </div>
             </div></li>
             <li>
+
+<div class="form-group">
+            <div class="form-wrapper">
+              <label for="">Gearbox oil capacity:</label>
+              <input type="text" class="form-control" required value="<?php echo $row_assets['gear_cap']; ?>" name="gear_cap">
+            </div>
+            <div class="form-wrapper">
+              <label for="">Engine Power:</label>
+              <input type="text" class="form-control" required value="<?php echo $row_assets['engine_power']; ?>"  name="engine_power">
+              </div>
+            </div></li>
+            <li>
+
+<div class="form-group">
+            <div class="form-wrapper">
+              <label for="">Battery capacity:</label>
+              <input type="text" class="form-control" required value="<?php echo $row_assets['bat_cap']; ?>" name="bat_cap">
+            </div>
+            <div class="form-wrapper">
+              <label for="">No. of Services:</label>
+              <input type="text" class="form-control" required value="<?php echo $row_assets['services']; ?>"  name="services">
+              </div>
+            </div></li>
+            <li>
    
 <div class="form-group">
             <div class="form-wrapper">
@@ -226,6 +254,7 @@ input{
               <input type="text" class="form-control" required value="<?php echo $row_assets['speed']; ?>"  name="speed">
               </div>
             </div></li>
+            <li>
 
 <div class="form-group">
             <div class="form-wrapper">
@@ -249,8 +278,7 @@ input{
               <input type="text" class="form-control" required value="<?php echo $row_assets['engSerialNo']; ?>"  name="engSerialNo">
               </div>
             </div></li>
-
-<li>
+            <li>
    
    <div class="form-group">
             <div class="form-wrapper">
@@ -286,7 +314,7 @@ input{
               <input type="text" class="form-control" required value="<?php echo $row_assets['imei_device']; ?>"  name="imei_device">
               </div>
             </div></li>
-<li>
+            <li>
    
    <div class="form-group">
             <div class="form-wrapper">
@@ -302,51 +330,47 @@ input{
    
    <div class="form-group">
             <div class="form-wrapper">
-<label for="">Gross weight:</label>
-<input type="text" class="form-control" required value="<?php echo $row_assets['Gweight']; ?>" name="Gweight">
+              <label for="">Gross weight:</label>
+              <input type="text" class="form-control" required value="<?php echo $row_assets['Gweight']; ?>" name="Gweight">
             </div>
             <div class="form-wrapper">
               <label for="">Status:</label>
               <select class="form-control" name="wsts"><option value="100">Good</option><option value="50">Idle</option><option value="0">Bad</option></select>
               </div>
             </div></li>
-
             <li>
    
    <div class="form-group">
             <div class="form-wrapper">
-<label for="">Tank Capacity:</label>
-<input type="text" class="form-control" value="<?php echo $row_assets['fuel_tank']; ?>" name="fuel_tank">
+              <label for="">Tank Capacity:</label>
+              <input type="text" class="form-control" value="<?php echo $row_assets['fuel_tank']; ?>" name="fuel_tank">
             </div>
             <div class="form-wrapper">
               <label for="">Radiator:</label>
               <input type="text" class="form-control" value="<?php echo $row_assets['radi']; ?>" name="radi">
               </div>
             </div></li>
-
             <li>
    
    <div class="form-group">
             <div class="form-wrapper">
-<label for="">Crankcase:</label>
-<input type="text" class="form-control" value="<?php echo $row_assets['crank']; ?>" name="crank">
+              <label for="">Crankcase:</label>
+              <input type="text" class="form-control" value="<?php echo $row_assets['crank']; ?>" name="crank">
             </div>
             <div class="form-wrapper">
               <label for="">Hydraulic System:</label>
               <input type="text" class="form-control" value="<?php echo $row_assets['hyd_sys']; ?>" name="hyd_sys">
               </div>
             </div></li>
-
-
-             <li>
+            <li>
                
  
-<div class="form-group">
+    <div class="form-group">
             <div class="form-wrapper">
               <label for="">Model. Type:</label>
               <input type="text" class="form-control" required value="<?php echo $row_assets['modelType']; ?>" name="modeltype">
             </div>
- <div class="form-wrapper">
+            <div class="form-wrapper">
               <label for="">Site:</label>
               <select class="form-control" id="from" required name="site">
                         
@@ -358,9 +382,9 @@ input{
               </div>
           </div>
           </li>
-            <li>
+          <li>
             
-             <div class="form-group">
+    <div class="form-group">
             <div class="form-wrapper">
               <label for="">Driver's Name:</label>
               <input type="text" class="form-control"  value="<?php echo $row_assets['driver']; ?>" name="driver">
@@ -368,8 +392,7 @@ input{
              <div class="form-wrapper">
               <label for="">Cost:</label>
               <input type="text" class="form-control"  value="<?php echo $row_assets['cost']; ?>" name="cost">
-            </div>
-            
+            </div> 
           </div>
         </li>
 
