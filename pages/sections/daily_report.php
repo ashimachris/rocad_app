@@ -226,7 +226,7 @@ exit;
 
   <div class="wrapper">
 
-    <?php include_once "../layout/topmenu.php"; ?>
+    <?php include_once "../layout/topmenu.php"; allow_access_all(1,1,0,0,1,0,$usergroup); ?> 
     <?php include_once "../layout/left-sidebar.php"; ?>
     
 
@@ -390,7 +390,7 @@ exit;
                    
                     <td>
                       <div class="dropdown">
-                  		  <button class="dropbtn"><i class="fa fa-eye" aria-hidden="true" <?php allow_access(1,1,0,0,0,0,$usergroup); ?>></i></button>
+                  		  <button class="dropbtn"><i class="fa fa-eye" aria-hidden="true" <?php allow_access(1,1,1,0,0,0,$usergroup); ?>></i></button>
                      		<div class="dropdown-content">
                            
                      		<?php 
