@@ -129,7 +129,7 @@ function myFunction() {
                 <th>Eng. Type:</th>                
               <th>Driver's Name:</th>
                   <th>Site:</th>
-                   <th <?php allow_access(1, 0, 0, 0,0,0, $usergroup); ?>>Action</th>
+                   <th <?php allow_access(1, 0, 1, 1,0,0, $usergroup); ?>>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -145,18 +145,18 @@ function myFunction() {
                    <td><?php if($row_assets['status']!=2){?><?php if($row_assets['driver']==NULL){echo"<a href='updatePlant.php?v=$id'>Update</a>";}else{echo $row_assets['driver'];} ?><?php }?></td>
                    <td><?php $siteID=$row_assets['site'];require '../layout/site.php'; echo $row_site['sitename']; ?></td>
 
-                    <td <?php allow_access(1, 0, 0, 0,0,0, $usergroup); ?>><div class="dropdown">
+                    <td <?php allow_access(1, 0, 1, 1,0,0, $usergroup); ?>><div class="dropdown">
   <button class="dropbtn"><i class="fa fa-eye" aria-hidden="true"></i></button>
   <div class="dropdown-content">
-  <?php if($row_assets['status']==1){?><a href="staff_ad.php?v=<?php echo '4assets';?>&r=<?php echo $row_assets['id'];?>&lk=<?php echo 'equipments.php';?>">De-activate</a><?php }?>
+  <?php if($row_assets['status']==1){?><a href="staff_ad.php?v=<?php echo '4assets';?>&r=<?php echo $row_assets['id'];?>&lk=<?php echo 'equipments.php';?>" <?php allow_access(1, 0, 0, 0,0,0, $usergroup); ?>>De-activate</a><?php }?>
   <?php if($row_assets['status']==2){?>
-    <a href="staff_ad.php?v=<?php echo '5assets';?>&r=<?php echo $row_assets['id'];?>&lk=<?php echo 'equipments.php';?>">Activate</a><?php }?>
+    <a href="staff_ad.php?v=<?php echo '5assets';?>&r=<?php echo $row_assets['id'];?>&lk=<?php echo 'equipments.php';?>" <?php allow_access(1, 0, 0, 0,0,0, $usergroup); ?>>Activate</a><?php }?>
   <a href="updatePlant.php?v=<?php echo $id; ?>">Update</a>
 
   <!-- <a  onclick="return openManual(<?php echo $row_assets['manual_url'];  ?>);">Manual</a> -->
    <a  href="<?php echo $row_assets['manual_url'];?>" onclick="return openManual()">Manual</a>
 
-  <a  href="staff_ad.php?v=<?php echo '6assets';?>&r=<?php echo $row_assets['id'];?>&lk=<?php echo 'equipments.php';?>" onclick="return myFunction()">Delete</a>
+  <a  href="staff_ad.php?v=<?php echo '6assets';?>&r=<?php echo $row_assets['id'];?>&lk=<?php echo 'equipments.php';?>" onclick="return myFunction()" <?php allow_access(1, 0, 0, 0,0,0, $usergroup); ?>>Delete</a>
    
  
   </div>
@@ -177,7 +177,7 @@ function myFunction() {
                 <th>Eng. Type:</th>                
               <th>Driver's Name:</th>
                   <th>Site:</th>
-                   <th <?php allow_access(1, 0, 0, 0,0,0, $usergroup); ?>>Action</th>
+                   <th <?php allow_access(1, 0, 1, 1,0,0, $usergroup); ?>>Action</th>
                   </tr>
                 </tfoot>
               </table>
