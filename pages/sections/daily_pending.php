@@ -304,13 +304,13 @@ if (isset($_GET['move_to_daily_expenses'])) {
 
             <!-- Approve All checkbox for bulk selection -->
             <h4 <?php allow_access(1,1,0,0,0,0,$usergroup); ?>>
-              <label>Approve All:</label> 
+              <label>Select All:</label> 
               <input class="form-check-input" type="checkbox" id="selectAll">
             </h4>
 
             <!-- Approve buttons section (displayed conditionally) -->
             <div style="float: right; display:none" id="approve_div">
-              <button <?php allow_access(1,0,0,0,0,0,$usergroup); ?> class="btn btn-primary btn-sm btn-flat" id="move_btn">
+              <button <?php allow_access(1,1,0,0,0,0,$usergroup); ?> class="btn btn-primary btn-sm btn-flat" id="move_btn">
                 Move To Daily Expense(s)
               </button> ||
               <button <?php allow_access(1,0,0,0,0,0,$usergroup); ?> class="btn btn-primary btn-sm btn-flat" id="approve_btn">
