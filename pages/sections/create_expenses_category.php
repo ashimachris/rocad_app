@@ -25,6 +25,10 @@ $tenDgt = rand(1000000000,9999999999);
 $qry_categories = "SELECT * FROM expenses_category ORDER BY id";
 $expenses_category = mysqli_query($config, $qry_categories) or die(mysqli_error($config));
 
+$qry_sub_categories = "SELECT * FROM expenses_sub_category ORDER BY id";
+$expenses_sub_category = mysqli_query($config, $qry_sub_categories) or die(mysqli_error($config));
+
+/*
 if (isset($_GET['edit_id'])) {
 $qry_details = "SELECT * FROM `daily_expenses_reports` WHERE id=". $_GET['edit_id'];
 
@@ -32,7 +36,7 @@ $details=mysqli_query($config,$qry_details) or die(mysqli_error($config));
 
 $row_details = mysqli_fetch_assoc($details);
 
-}
+}*/
 
 
 if(isset($_POST["submit_category"])){
@@ -80,6 +84,37 @@ if(isset($_POST["submit_sub_category"])){
     }
    
 }
+
+
+if(isset($_POST["submit_sub_sub_category"])){
+
+  $sub_category_id = $_POST['sub_category_id'];
+  $name = mysqli_real_escape_string($config,$_POST["name"]);
+  $description = mysqli_real_escape_string($config,$_POST["description"]);
+
+  if($sub_category_id=="" || $name =="" || $description==""){
+
+       echo "Error, Failed to save the record, All fields required";
+       exit;
+
+  }else{
+
+      $insert="insert into `expenses_sub_sub_category`(`name`,  `description`, sub_cat_id)
+              values('$name','$description','$sub_category_id')";
+
+          $save_sub_subcategory=mysqli_query($config,$insert) or die(mysqli_error($config));
+        
+        if($save_sub_subcategory){
+
+          $msg="<font color='green'>Data Saved successfully.</font>";
+            echo  "<script>setTimeout(function(){window.location='category_list.php';},4200);</script>";
+          }else{
+            echo"Error, Failed to save the record";
+            }
+    }
+   
+}
+
 ?>
 <style type="text/css">
 input{
@@ -211,14 +246,14 @@ input{
                         <input type="text" class="form-control" required value="<?php echo $timeDate; ?>"  name="make" disabled></li>
                         <li><label for="">Sub Category</label>
                         <!-- Input field for main category -->
-                          <select name="" class="form-control">
+                          <select name="sub_category_id" class="form-control">
                               <option value="">Select sub category</option>
-                             <!-- <?php while ($row_category = mysqli_fetch_assoc($expenses_category)) { ?>
-                              <option value="<?php echo $row_category['id']; ?>"><?php echo $row_category['name']; ?></option>
-                              <?php } ?> -->
+                              <?php while ($row_sub_category = mysqli_fetch_assoc($expenses_sub_category)) { ?>
+                              <option value="<?php echo $row_sub_category['id']; ?>"><?php echo $row_sub_category['name']; ?></option>
+                              <?php } ?> 
                           </select>
                         </li>
-                        <li><label for="">Sub_sub_Category Name</label>
+                        <li><label for="">Sub sub Category Name</label>
                             <input class="form-control" name="name" type="text" value="" />
                         </li>
                         <li><label for="">Description</label>
@@ -230,7 +265,7 @@ input{
                       <div>
                            <div align="right"> 
                               <!-- Submit button for the second form -->
-                              <input type="submit" name="submit_sub_sub_category" class="btn btn-info" value="Save sub_sub category"/>
+                              <input type="submit" name="submit_sub_sub_category" class="btn btn-info" value="Save sub sub category"/>
                           </div> 
                       </div> 
                     </form>

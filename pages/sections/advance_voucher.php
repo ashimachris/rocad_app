@@ -51,53 +51,85 @@ $sql="insert into `storeloadingdetails`(fromsite,dept,reqfor,PlantNo,preby,refer
      // save invoice 
 
          $rid = mysqli_insert_id($config);
-         if (isset($_FILES['attachement']) && $_FILES['attachement']['tmp_name'] != '') {
-              if (!is_dir("uploads/")) {
-                  mkdir("uploads/", 0755, true);
+      // ================= MULTIPLE FILE UPLOAD SECTION =================
+      if (isset($_FILES['attachement']) && !empty($_FILES['attachement']['name'][0])) {
+
+          // Ensure upload folder exists
+          if (!is_dir("uploads/")) {
+              mkdir("uploads/", 0755, true);
+          }
+
+          $uploaded_files = []; // store uploaded file paths
+
+          foreach ($_FILES['attachement']['tmp_name'] as $key => $tmp_name) {
+
+              if ($tmp_name == '') {
+                  continue;
               }
 
-              $upload = $_FILES['attachement']['tmp_name'];
-              $filename = $_FILES['attachement']['name'];
-              $file_ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION)); // Get the file extension
-              $fname = 'uploads/' . $rid . '.' . $file_ext; // Customize the new filename
-              $dir_path = $fname;
+              $filename  = $_FILES['attachement']['name'][$key];
+              $file_ext  = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+              $new_name  = $rid . "_" . $key . "." . $file_ext; // unique name per file
+              $dir_path  = "uploads/" . $new_name;
 
+              // Remove file if already exists
               if (is_file($dir_path)) {
                   unlink($dir_path);
               }
 
-              $uploaded_img = false; // Initialize the variable
+              $uploaded = false;
 
-              // Check the file type and compress if it's an image
+              // If file is an image ? compress
               if (in_array($file_ext, ['jpg', 'jpeg', 'png', 'gif'])) {
-                  // Create a new image resource from the uploaded file
+
                   if ($file_ext === 'jpg' || $file_ext === 'jpeg') {
-                      $source_image = imagecreatefromjpeg($upload);
-                      imagejpeg($source_image, $dir_path, 25); // adjust as needed
+                      $source_image = imagecreatefromjpeg($tmp_name);
+                      imagejpeg($source_image, $dir_path, 25);
                   } elseif ($file_ext === 'png') {
-                      $source_image = imagecreatefrompng($upload);
-                      imagepng($source_image, $dir_path, 4); // Compression level for PNG
+                      $source_image = imagecreatefrompng($tmp_name);
+                      imagepng($source_image, $dir_path, 4);
                   } elseif ($file_ext === 'gif') {
-                      $source_image = imagecreatefromgif($upload);
+                      $source_image = imagecreatefromgif($tmp_name);
                       imagegif($source_image, $dir_path);
                   }
 
-                  imagedestroy($source_image);
-                  $uploaded_img = file_exists($dir_path);
+                  if (isset($source_image)) {
+                      imagedestroy($source_image);
+                  }
+
+                  $uploaded = file_exists($dir_path);
+
               } else {
-                  // If not an image, simply move the uploaded file
-                  $uploaded_img = move_uploaded_file($upload, $dir_path);
+                  // For PDF, Word, Excel, TXT, CSV, etc.
+                  $uploaded = move_uploaded_file($tmp_name, $dir_path);
               }
-              // Update the database if upload was successful
-              if($uploaded_img){
-              $qry = mysqli_query($config, "UPDATE `storeloadingdetails` set sign_by='$sign_by', invoice = concat('{$fname}','?v=',unix_timestamp(CURRENT_TIMESTAMP)) where id = '$rid' ");
+
+              if ($uploaded) {
+                  $uploaded_files[] = $dir_path;
               }
           }
-          
 
-  $msg="<font color='green'>Request sent successfully.</font>";
-  
-   echo    "<script>setTimeout(function(){window.location='advance_voucher.php';},4200);</script>";
+          // Save all uploaded file paths as comma-separated values
+          if (!empty($uploaded_files)) {
+              $files_string = implode(",", $uploaded_files);
+
+              mysqli_query(
+                  $config,
+                  "UPDATE `storeloadingdetails`
+                  SET sign_by='$sign_by',
+                      invoice = concat('{$files_string}','?v=',unix_timestamp(CURRENT_TIMESTAMP))
+                  WHERE id = '$rid'"
+              );
+          }
+      }
+
+      $msg = "<font color='green'>Request sent successfully.</font>";
+
+      echo "<script>
+              setTimeout(function(){
+                  window.location='advance_voucher.php';
+              },4200);
+            </script>";
 
   } 
 
@@ -107,22 +139,52 @@ $dt=(rand(10,100));
 
 if($mail){
 
-  $prebyID=$preby;require '../layout/preby.php';
+    $prebyID = $preby;
+    require '../layout/preby.php';
 
-  $siteID=$_POST["from"];require '../layout/site.php';
+    $siteID = $_POST["from"];
+    require '../layout/site.php';
 
+    // Prepare a professional email subject
+    $subject = "Advance Voucher Request on ($timeDate) - Ref: " . $dt . " | Prepared by " . $row_preby['fullname'];
 
+    // Prepare a professional email body
+    $msgT = "
+    Dear Team,
 
-  $msgT="Prepared By:".$row_preby['fullname']."\nFrom:".$row_site['sitename']."\nRequired for: ".$_POST["reqfor"]."\nAmount: ".$_POST["ttlv"]."\nTime & Date:".$timeDate."\nStatus: Pending."."\nLogin to website:\nhttps://app.rocad.com";
+    A new advance voucher request has been submitted and is pending review. Please find the details below:
 
-  $msgMail = wordwrap($msgT,70);
+    --------------------------------------------------
+    Prepared By : " . $row_preby['fullname'] . "
+    From (Site)  : " . $row_site['sitename'] . "
+    Required For : " . $_POST["reqfor"] . "
+    Amount       : " . $_POST["ttlv"] . "
+    Time & Date  : " . $timeDate . "
+    Status       : Pending Approval
+    Reference ID : " . $dt . "
+    --------------------------------------------------
 
+    You may log into the ROCAD Management Portal to review and take action:
 
+    https://app.rocad.com
 
-// send email
+    Thank you.
 
-mail("ronaldo@rocad.com,rene@rocad.com,tamer@rocad.com,umar@rocad.com,deleakintayo@rocad.com","Advance_voucher (".($row_preby['fullname']).$dt.")",$msgMail);
+    Regards,  
+    ROCAD Nigeria Ltd.
+    ";
 
+    $msgMail = wordwrap($msgT, 70);
+
+    // Send email
+    $to = "ronaldo@rocad.com, rene@rocad.com, tamer@rocad.com, umar@rocad.com, deleakintayo@rocad.com";
+
+    // Email headers with From name as subject
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/plain; charset=UTF-8\r\n";
+    $headers .= "From: \"" . addslashes($subject) . "\" <no-reply@rocad.com>\r\n";
+
+    mail($to, $subject, $msgMail, $headers);
 }
 
 ?>
@@ -183,9 +245,6 @@ input{
 
     <?php include_once "../layout/left-sidebar.php"; ?>
 
-    
-
-
 
     <!-- Content Wrapper. Contains page content -->
 
@@ -243,23 +302,15 @@ input{
 
               <div class="form-group">
 
-                
-
                   <img src="pace/adv.jpg" style="height:25%; padding-top:50px;" class="hidden-mobile">
-
-               
 
                 <div class="form-wrapper">
 
                   <form name="add_name" id="add_name" action="" method="post"  class="form-style-9" enctype="multipart/form-data">           
-
 <ul>
 
- 
 
 <li>
-
-   
 
    
 
@@ -320,47 +371,65 @@ input{
 
          </li>
 
-         <li><label for="">Supplier/Account Name:</label><input type="text" class="form-control" required name="supl" id="supl"></li>  
+         <li>
+          <label for="">Supplier/Account Name:</label>
+          <input type="text" class='form-control account_name' required name="supl" id="supl">
+        </li>  
 
-         <!--<li><label for="">Bank Name:</label><input type="text" class="form-control" name="bank_name"></li> -->
-         <li><label for="" >Bank Name:</label> 
-                <select class="form-control" required name="bank_name"> 
-                <option>N/A</option>
-                <option>Access Bank Plc</option>
-                <option>Ecobank Nigeria</option>
-                <option>Heritage Bank</option>
-                <option>Jaiz Bank</option>
-                <option>Fidelity Bank Plc</option>
-                <option>First Bank of Nigeria Limited</option>
-                <option>First City Monument Bank Limited</option>
-                <option>Guaranty Trust Bank Plc</option>
-                <option>Keystone Bank Limited</option>
-                <option>Providus Bank</option>
-                <option>MoniePoint</option>
-                <option>Opay</option>
-                <option>Polaris Bank Limited</option>
-                <option>Sterling Bank Plc</option>
-                <option>Stanbic IBTC Bank</option>
-                <option>Standard Chattered Bank Nigeria</option>
-                <option>Union/Titan Trust Bank Limited</option>
-                <option>United Bank for Africa Plc</option>
-                <option>Wema Bank</option>
-                <option>Zenith Bank Plc</option>
-                </select> 
+        <div id='pageloader' style='display:none'>
+          <center><img id='uploadimage2' src='loader.gif' style='width:10%;height:10%;'></center>
+        </div>
+
+          <div class='row' id='userDataResponse' style='width:40rem'></div>
+
+          <!--start beneficiries bank data responses  -->
+        <input type='hidden' class='beneficiary_id'  name='beneficiary_id'   value='' required>
+        <input type="hidden" class='account_name_load' required name="supl" id="supl">
+        <input type="hidden" class='account_number_load' required name="pay_to" id="pay_to">
+        <input type='hidden' class='bank_name_load'  name='bank_name'   value=''>
+
+        <div class="account-details" style='display:none'>
+         <li>
+          <label for="">Account Number:</label>
+          <input type="text" class='form-control account_number' required name="pay_to" id="pay_to">
+        </li>
+          
+          <li >
+              <label for="" >Bank Name:</label> 
+              <input type='text' class='form-control bank_name' required name='bank_name'   value=''>
           </li>
-         <li><label for="">Account Number:</label><input type="text" class="form-control" required name="pay_to" id="pay_to"></li>
+        </div>
+          <!-- end beneficiries bank data responses  -->
+         
+        <div class='col-lg-12' >
+            <label class='btn btn-default' id='changeBeneficiary' style='display:none'>Change Beneficiary</label>
+         </div>
 
+         
          <li><label for="">Quantity:</label><input type="number" min="0" class="form-control" name="qty"></li>
 
          <li><label for="">Amount:</label><input type="number" min="1" class="form-control" required name="ttlv" ></li>
 
-         <li>
-              <label for="">Upload Voucher:</label>
+         <li class="mb-3">
+              <label for="attachement">
+                  Upload Voucher 
+                  <small class="text-muted">
+                      (JPG, JPEG, PNG, GIF, PDF, DOC, DOCX, XLS, XLSX)
+                  </small>
+              </label>
 
-            <input type="file" id="attachement" name="attachement" class="form-control form-control-sm form-control-border" onchange="displayImg(this,$(this))" required>
+              <input 
+                  type="file"
+                  id="attachement"
+                  name="attachement[]"
+                  class="form-control form-control-sm form-control-border"
+                  multiple
+                  accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.xls,.xlsx"
+                  onchange="displayImg(this)"
+              >
 
-         </li>
-
+              <div id="uploadedFilesPreview" class="mt-2"></div>
+          </li>
 
 
          <div class="row" style="display:none" id="toggleDisplay">
@@ -371,51 +440,146 @@ input{
 
 
    </ul>
-                <div align="right">
+                <div align="right" style="display:none" class="submit-button">
 
                      <input type="submit" name="sbt" id="submit" class="btn btn-info" value="Submit"/> 
 
-                     </div> 
+                </div> 
 
 </form>
 
 </div>
 
 </div>
-
  
- <script>
-  function displayImg(input,_this) {
-        if (input.files && input.files[0]) {
-            var file = document.querySelector('#attachement').value;
-            var extension = file.split('.').pop();
-          var reader = new FileReader();
-         
-          reader.onload = function (e) {
-                if(extension=='pdf' || extension=='docx'||extension=='docs' || extension=='txt' || extension=='csv' || extension=='xlsx'){
-                    $('#invoiceImg').attr('src', 'https://static.vecteezy.com/system/resources/thumbnails/020/522/575/small/simple-document-icon-png.png');
-                }else{
-                    $('#invoiceImg').attr('src', e.target.result);
-                }
-          }
-
-          reader.readAsDataURL(input.files[0]);
-           $('#toggleDisplay').show();
-      }else{
-            $('#invoiceImg').attr('src', '');
-        }
-  }
-
-  // Initialize document functions when ready
+<script>
 $(document).ready(function() {
 
-  $('.select2').select2({
+    // Store selected files globally
+    let selectedFiles = [];
+
+    // File selection handler
+    window.displayImg = function(input) {
+
+        if (!input.files || input.files.length === 0) {
+            return;
+        }
+
+        const previewContainer = $('#uploadedFilesPreview');
+
+        // Add newly selected files
+        Array.from(input.files).forEach(file => {
+
+            // Prevent duplicate file names (optional safety)
+            const exists = selectedFiles.some(f => 
+                f.name === file.name && f.size === file.size
+            );
+
+            if (!exists) {
+                selectedFiles.push(file);
+            }
+        });
+
+        renderPreview(previewContainer);
+
+        // Reset input so same file can be selected again
+        input.value = "";
+    };
+
+
+    function renderPreview(container) {
+
+        container.empty();
+
+        selectedFiles.forEach((file, index) => {
+
+            const fileExt = file.name.split('.').pop().toLowerCase();
+            const isImage = ['jpg', 'jpeg', 'png', 'gif'].includes(fileExt);
+
+            const row = $('<div>', {
+                style: `
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    padding:8px;
+                    border:1px solid #ddd;
+                    border-radius:6px;
+                    margin-bottom:8px;
+                    background:#f9f9f9;
+                `
+            });
+
+            const left = $('<div>', {
+                style: 'display:flex; align-items:center; gap:10px;'
+            });
+
+            const previewImg = $('<img>', {
+                style: 'width:60px; height:60px; object-fit:cover; border-radius:4px;'
+            });
+
+            if (isImage) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImg.attr('src', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewImg.attr(
+                    'src',
+                    'https://static.vecteezy.com/system/resources/thumbnails/020/522/575/small/simple-document-icon-png.png'
+                );
+            }
+
+            const fileName = $('<span>', {
+                text: file.name,
+                style: 'font-size:13px;'
+            });
+
+            const deleteBtn = $('<button>', {
+                type: 'button',
+                class: 'btn btn-danger btn-sm',
+                text: 'Delete',
+                click: function() {
+                    selectedFiles.splice(index, 1);
+                    renderPreview(container);
+                }
+            });
+
+            left.append(previewImg);
+            left.append(fileName);
+
+            row.append(left);
+            row.append(deleteBtn);
+
+            container.append(row);
+        });
+    }
+
+
+    // IMPORTANT: Before form submit, re-attach files
+    $('#add_name').on('submit', function() {
+
+        const dt = new DataTransfer();
+
+        selectedFiles.forEach(file => {
+            dt.items.add(file);
+        });
+
+        document.getElementById('attachement').files = dt.files;
+    });
+
+
+    // Select2 initialization
+    $('.select2').select2({
         placeholder: "Please select here",
         width: "100%"
-    })
+    });
+
 });
 </script>
 
+<!-- load logic for beneficiaries   -->
+<?php require './beneficiaries_footer.php'; ?>
 
 <style type="text/css">
 
@@ -694,12 +858,6 @@ button {
 
           <!-- /.box -->
 
-
-
-           
-
-          <!-- /.box -->
-
         </div>
 
         <!-- /.col -->
@@ -712,29 +870,15 @@ button {
 
     <!-- /.content -->
 
-        
-
     </div><!-- /.content-wrapper -->
-
-    
 
     <?php include_once "../layout/copyright.php"; ?>
 
     <?php include_once "../layout/right-sidebar.php"; ?>
 
-
-
-    <!-- /.control-sidebar -->
-
-    <!-- Add the sidebar's background. This div must be placed
-
-         immediately after the control sidebar -->
-
     <div class="control-sidebar-bg"></div>
 
   </div><!-- ./wrapper -->
-
-
 
 <?php include_once "../layout/footer.php" ?>
 

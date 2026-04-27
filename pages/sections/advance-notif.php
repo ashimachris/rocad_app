@@ -202,12 +202,11 @@ img.attachementPreview{
   <div class="wrapper">
 
 
+    <?php include_once "../layout/topmenu.php";allow_access_all(1,1,1,1,1,1,$usergroup); 
 
-    <?php include_once "../layout/topmenu.php";allow_access_all(1,1,1,1,1,1,$usergroup); if(isset($_GET['v'])and (!empty($_GET['v']))){
+if(isset($_GET['v'])and (!empty($_GET['v']))){
 
   $reference=$_GET['v'];
-
-   
 
 }else{
 
@@ -219,16 +218,17 @@ img.attachementPreview{
 
 $notiqry1="SELECT * FROM `storeloadingdetails` WHERE status IN($sts) AND reference IN($reference)";
 
-
-
 $noti1=mysqli_query($config,$notiqry1);
+$total1=mysqli_num_rows($noti1);
+
+if($total1==0){
+  echo"<script>alert('Already Approved'); </script>";
+  echo"<script>window.location='/rocad_admin/pages/dashboard/'; </script>";
+}else{
 
 $noti11=mysqli_query($config,$notiqry1);
 
 $row_notii=mysqli_fetch_array($noti11);
-
-$total1=mysqli_num_rows($noti1);
-
 
 
 /////////vars
@@ -248,13 +248,6 @@ $title="Advance Voucher";
 $site=mysqli_real_escape_string($config,$row_notii['fromsite']);
 
 $reference=mysqli_real_escape_string($config,$row_notii['reference']);
-
-//////////////////
-
-if($total1==0){
-
-  header("location:/rocad_admin/pages/dashboard/");
-
 }
 
 if (isset($_POST['denied'])) {
@@ -324,43 +317,59 @@ if (isset($_POST['denied'])) {
 
     $note="";
 
-    if($row_notii['modify_by']){
-
-      $note="\nNote: Some Item has been modifed";
-
+ if($row_notii['modify_by']){
+    $note = "\nNote: Some Item has been modified";
     }
 
-  $msgT="Response By:".$row_preby['fullname'].$note."\nStatus:".$sts."\nLogin to website:\nhttps://app.rocad.com";
+    // Get email of the original preparer
+    $prebyID = $row_notii['preby'];
+    require '../layout/preby.php';
 
-  $msgMail = wordwrap($msgT,70);
+    // Prepare a professional email subject
+    $subject = "Advance Voucher Response - ($time_date) " . $row_preby['fullname'];
 
+    // Prepare a professional email body
+    $msgT = "
+    Dear " . $row_preby['fullname'] . ",
 
+    A response has been submitted regarding your requisition. Please review the details below:
 
-// send email
+    --------------------------------------------------
+    Responded By : " . $row_preby['fullname'] . "
+    Status       : " . $sts . "
+    Remarks      : " . $note . "
+    --------------------------------------------------
 
-  $prebyID=$row_notii['preby'];require '../layout/preby.php';
+    You may log in to the ROCAD Management Portal to view the full details and take any necessary action:
 
-mail($row_preby['user_mail'],"Requisition Response",$msgMail);
+    https://app.rocad.com
 
-///////////////////////
-     echo "<script>alert('Successfully Updated');window.location='/rocad_admin/pages/dashboard/';</script>";
+    Thank you.
 
-   }
+    Regards,  
+    ROCAD Nigeria Ltd.
+    ";
 
-   else{
+    $msgMail = wordwrap($msgT, 70);
 
-     echo "<script>alert('Error Updating Data');</script>";
+    // Prepare email headers with From name as subject
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/plain; charset=UTF-8\r\n";
+    $headers .= "From: \"Advance Voucher Response\" <no-reply@rocad.com>\r\n";
 
-   }
+    // Send email
+    mail($row_preby['user_mail'], $subject, $msgMail, $headers);
+
+    ///////////////////////
+    echo "<script>alert('Successfully Updated');window.location='/rocad_admin/pages/dashboard/';</script>";
+    } else {
+        echo "<script>alert('Error Updating Data');</script>";
+    }
 
 }
-
- ?>
+    ?>
 
     <?php include_once "../layout/left-sidebar.php"; ?>
-
-    
-
 
 
     <!-- Content Wrapper. Contains page content -->
@@ -414,7 +423,8 @@ mail($row_preby['user_mail'],"Requisition Response",$msgMail);
 
               <td width="161" rowspan="6" valign="top" <?php allow_access(1,1,0,0,0,0,$usergroup); ?>><font color="blue">Note:</font> <br><form action="" method="post" id="denied"><input type="hidden" name="denied" id="act"><input type="hidden" name="mysqls2" value="<?php echo $authby=',authby='.$preby; ?>"><textarea placeholder="<?php echo $row_notii['note']; ?>" required name="note"></textarea><input type="submit" name="ok" id="ok" style="display:none"></form><br><br><center>Action<br>
 
-                <span class="label label-danger" style="cursor:pointer" onClick="$('#act').attr('value','1');$('#ok').click();"> Denied</span> | | <span class="label label-success" <?php allow_access(1,1,0,0,0,0,$usergroup); ?> style="cursor:pointer" id="approveToExpense">Approve to Expense</span>
+                <span class="label label-danger" style="cursor:pointer" onClick="$('#act').attr('value','1');$('#ok').click();"> Denied</span> | | <span class="label label-success" 
+                <?php allow_access(1,1,0,0,0,0,$usergroup); ?> style="cursor:pointer" id="approveToExpense">Approve to Expense</span>
                 
                  
               </center><br><br>
@@ -592,7 +602,8 @@ mail($row_preby['user_mail'],"Requisition Response",$msgMail);
 
   }'>Reject</a><?php }?>
 
-  </div></div></td>
+  </div>
+</div></td>
 
                 </tr>
 
@@ -662,29 +673,70 @@ mail($row_preby['user_mail'],"Requisition Response",$msgMail);
   <div class="modal-content">
     <span class="close">&times;</span>
     <center>
-      <table>
-        <tr>  <td>&nbsp;&nbsp;&nbsp;</td></tr>
-        <tr>
-            <?php
-            $attch = parse_url($row_notii['invoice']);
-            $name = pathinfo($attch['path'], PATHINFO_FILENAME);
-            $ext  = pathinfo($attch['path'], PATHINFO_EXTENSION);
-            $attachment = $row_notii['invoice'];
-           ?>
-            <?php if($ext=="png" || $ext=="jpg" || $ext=="jpeg"){ ?>
-                <img src="<?php echo isset($attachment) ? $attachment :'' ?>" alt="Attachement File " width="50" height="80" class="attachementPreview border border-gray img-thumbnail" width="450" height="450">
-            <?php }else if($ext=="pdf"){ ?>
-                <iframe src="<?php echo isset($attachment) ? $attachment :'' ?>" alt="Attachement File " class="attachementPreview border border-gray" style="border:1px solid black;"></iframe>
-            <?php } else{ ?>
+        <table>
+          <tr><td>&nbsp;</td></tr>
+          <tr>
+          <td>
 
-                <a href="<?php echo $row_notii['invoice']; ?>">View</a>
-                    <?php //echo $row_notii['invoice']; ?>"
-               
-            <?php } ?>
-        
-       </tr>
-       <tr>  <td>&nbsp;&nbsp;&nbsp;</td></tr>
-       </table>
+          <?php
+          // Get invoice string
+          $invoiceString = $row_notii['invoice'] ?? '';
+
+          // Remove cache version if exists (?v=...)
+          $invoiceString = preg_replace('/\?v=.*$/', '', $invoiceString);
+
+          // Convert to array (handles single or multiple)
+          $attachments = array_filter(explode(",", $invoiceString));
+
+          if(!empty($attachments)) {
+
+              foreach($attachments as $attachment) {
+
+                  $attachment = trim($attachment);
+                  $ext = strtolower(pathinfo($attachment, PATHINFO_EXTENSION));
+          ?>
+
+                  <div style="margin-bottom:20px; text-align:center;">
+
+                  <?php if(in_array($ext, ['jpg','jpeg','png','gif'])) { ?>
+
+                      <img src="<?php echo $attachment; ?>" 
+                          alt="Attachment File"
+                          class="attachementPreview border border-gray img-thumbnail"
+                          style="max-width:100%; height:auto;">
+
+                  <?php } elseif($ext == "pdf") { ?>
+
+                      <iframe src="<?php echo $attachment; ?>" 
+                              class="attachementPreview border border-gray"
+                              style="width:100%; height:500px; border:1px solid black;">
+                      </iframe>
+
+                  <?php } else { ?>
+
+                      <a href="<?php echo $attachment; ?>" 
+                        target="_blank" 
+                        class="btn btn-primary btn-sm">
+                        View <?php echo strtoupper($ext); ?> File
+                      </a>
+
+                  <?php } ?>
+
+                  </div>
+
+          <?php
+              }
+
+          } else {
+              echo "<p>No attachment found.</p>";
+          }
+          ?>
+
+          </td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+    </table>
+
     </center>
 
   </div>

@@ -22,6 +22,9 @@ $categories = mysqli_query($config, $qry_categories) or die(mysqli_error($config
 $qry_sub_categories = "SELECT * FROM `expenses_sub_category` ";
 $sub_categories = mysqli_query($config, $qry_sub_categories) or die(mysqli_error($config));
 
+$qry_sub_sub_cat = "SELECT * FROM `expenses_sub_sub_category` ";
+$sub_sub_cat = mysqli_query($config, $qry_sub_sub_cat) or die(mysqli_error($config));
+
 ?>
 <?php
 
@@ -173,16 +176,16 @@ if (isset($_GET['delete_id'])) {
                 class="pending"> Create Category
           </button> 
 
-          <!-- Display Total Approved Amount -->
+          <!-- Display Title -->
           <div class="box-body">
             <h2 class="box-title" style="text-align: center; color: darkgreen;">
-              Expenses categories
+              Expenses Main Categories
             </h2>
 
             <!-- Spacer for layout -->
             <br><br>
 
-            <!-- Table displaying expense reports -->
+            <!-- Table displaying expense categorization reports -->
             <div class="table-responsive">
               <table id="example1" class="table table-bordered table-hover w-100">
                 
@@ -279,7 +282,7 @@ if (isset($_GET['delete_id'])) {
               <button class="dropbtn"><i class="fa fa-eye" aria-hidden="true" <?php allow_access(1,1,0,0,1,0,$usergroup); ?>></i></button>
               <div class="dropdown-content">
                 <?php 
-                    echo "<a href='edit_expenses_category.php?edit_id={$row_sub_categories['id']}'>Edit</a>";
+                    echo "<a href='edit_sub_cat.php?edit_id={$row_sub_categories['id']}'>Edit</a>";
                 ?>
               </div>
             </div>
@@ -301,13 +304,91 @@ if (isset($_GET['delete_id'])) {
 
   </table>
 </div>
+<br><br>
 
+<h2 class="box-title" style="text-align: center; color: darkgreen;">Expenses Sub Sub Categories</h2>
+<div class="table-responsive">
+  <table id="example" class="table table-bordered table-hover w-100">
+    
+    <thead>
+      <tr>
+        <th>S/N:</th>
+        <th>MAIN CATEGORY:</th>
+         <th>SUB CATEGORY:</th>
+        <th>SUB_SUB CATEGORY:</th>
+        <th>DESCRIPTION:</th>
+        <th>ACTION</th>                    
+      </tr>
+    </thead>
 
+    <tbody>
+      <?php $j=0; while($row_sub_sub_cat=mysqli_fetch_assoc($sub_sub_cat)) { $j++; 
+            $sub_cat_id = $row_sub_sub_cat['sub_cat_id'];
+            $qry_sub_category = "SELECT * FROM `expenses_sub_category` WHERE id=$sub_cat_id";
+
+            $sub_category=mysqli_query($config,$qry_sub_category) or die(mysqli_error($config));
+
+            $row_sub_category = mysqli_fetch_assoc($sub_category);
+            $category_id= $row_sub_category['category_id'];
+
+            $qry_main_category = "SELECT * FROM `expenses_category` WHERE id='$category_id'";
+            $main_category=mysqli_query($config,$qry_main_category) or die(mysqli_error($config));
+
+            $row_main_category = mysqli_fetch_assoc($main_category);
+        ?>
+        <tr style="text-transform: uppercase; color: darkred;">
+           
+          <!-- Serial Number -->
+          <td><?php echo $j; ?></td>
+
+          <td><?php echo $row_main_category['name']; ?></td>
+          <td><?php echo $row_sub_category['name']; ?></td>
+          
+
+          <td><?php echo $row_sub_sub_cat['name']; ?></td>
+          <td><?php echo $row_sub_sub_cat['description']; ?></td>
+          
+          <td>
+            <div class="dropdown">
+              <button class="dropbtn"><i class="fa fa-eye" aria-hidden="true" <?php allow_access(1,1,0,0,1,0,$usergroup); ?>></i></button>
+              <div class="dropdown-content">
+                <?php 
+                    echo "<a href='edit_sub_sub_cat.php?edit_id={$row_sub_sub_cat['id']}'>Edit</a>";
+                ?>
+              </div>
+            </div>
+          </td>
+        </tr>
+      <?php } ?>
+    </tbody>
+    
+    <!-- Table Footer (same as header) -->
+    <tfoot>
+    <tr>
+        <th>S/N:</th>
+         <th>MAIN CATEGORY:</th>
+        <th>SUB CATEGORY:</th>
+        <th>SUB_SUB CATEGORY:</th>
+        <th>DESCRIPTION:</th>
+        <th>ACTION</th>                    
+      </tr>
+    </tfoot>
+
+  </table>
+</div>
           </div>
         </div>
       </section>
     </div>
   </div>
+
+<script>
+  $(document).ready(function() {
+    $('#example').DataTable();  // Initialize DataTables for the table
+  });
+</script>
+
+
 </body>
 
     <!-- Modal for Filtering Records -->

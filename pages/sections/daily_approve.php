@@ -55,6 +55,7 @@ $total_amount = mysqli_fetch_assoc($qry_amount)['total_amount'];
 <?php
 
 //Approving expenses
+/*
 if (isset($_GET['approve_id'])) {
 	$sql_query = "UPDATE daily_expenses_reports SET status=2 WHERE id=" . $_GET['approve_id'];
 	$approved = mysqli_query($config, $sql_query);
@@ -102,7 +103,7 @@ if (isset($_GET['approve_all'])) {
 echo json_encode($resp);
 exit;
 }
-
+*/
 ?>
 
 <style type="text/css">
@@ -272,11 +273,16 @@ exit;
                     <th></th>
                     <th>S/N:</th>
                     <th>PLANT NO:</th>
+                    <th>REF NO:</th>
                     <th>SITE:</th>
                     <th>DESCRIPTION:</th>
                     <th>AMOUNT:</th>
+                    <th>SUPPLIER/ACCT NAME:</th>
+                    <th>BANK:</th>
+                    <th>ACCT NO:</th>
                     <th>DATE:</th>
                     <th>PREPARED BY:</th>
+                    <th>AUTH BY:</th>
                     <th>INVOICE:</th>
                     <th>STATUS:</th>
                     <th>ACTION</th>
@@ -286,6 +292,14 @@ exit;
                 <!-- Table Body (Populated with PHP) -->
                 <tbody>
                   <?php $j=0; while($row_assets=mysqli_fetch_assoc($assets)) { $j++; ?>
+                       <?php 
+                                $reference = $row_assets['reference'];
+                                $qry_store = mysqli_query($config, "SELECT * FROM `storeloadingdetails` where reference='$reference'");
+                                $r_store =  mysqli_fetch_assoc($qry_store);
+                                $supplier = $r_store['supl'];
+                                $pay_to = $r_store['pay_to'];
+                                $bank_name = $r_store['bank_name'];
+                            ?>
                     <tr style="text-transform: uppercase; color: darkred;">
                       
                       <!-- Checkbox for selecting expenses -->
@@ -299,6 +313,9 @@ exit;
                       
                       <!-- Plant Number, displays "N/A" if value is '0' -->
                       <td><?php echo $row_assets['plant_no'] == '0' ? 'N/A' : $row_assets['plant_no']; ?></td>
+
+                      <!-- reference number) -->
+                      <td><?php echo $row_assets['reference']; ?></td>
                       
                       <!-- Site information (site state, LGA, location) -->
                       <td><?php $siteID = $row_assets['fromsite']; require '../layout/site.php'; echo $row_site['site_state']."-".$row_site['site_lga']."-".$row_site['site_loc']; ?></td>
@@ -308,28 +325,76 @@ exit;
                       
                       <!-- Amount with formatted currency -->
                       <td><?php echo number_format($row_assets['amount'], 2); ?></td>
+
+                      <!-- supplier -->
+                      <td><?php echo $supplier ?></td>
+
+                      <!-- bank name -->
+                      <td><?php echo $bank_name ?></td>
+
+                      <!-- Account number -->
+                     <td><?php echo $pay_to ?></td>
                       
                       <!-- Date of expense -->
                       <td><?php echo $row_assets['time_date']; ?></td>
                       
                       <!-- Name of person who prepared the expense report -->
                       <td><?php $prebyID = $row_assets['preby']; require '../layout/preby.php'; echo $row_preby['fullname']; ?></td>
+
+                      <!-- Name of person who authorised the expense report -->
+                      <td><?php if(!empty($row_assets['authby'])){$prebyID=$row_assets['authby'];}else{$prebyID=0;echo "<span class='label label-danger'>Waiting...</span>";}require '../layout/preby.php';echo $row_preby['fullname']; ?></td>
                       
                       <!-- Downloadable invoice link -->
                       <td>
                         <center>
-                          <?php 
-                            $invoice_link = "uploads/" . $row_assets['reference'] . ".jpg";
-                            $jpeg_link = "uploads/" . $row_assets['reference'] . ".jpeg";
-                            if (file_exists($jpeg_link)) { $invoice_link = $jpeg_link; }
-                            if (!empty($row_assets['invoice'])) { $invoice_link = $row_assets['invoice']; }
-                          ?>
-                          <a class="text-primary" href="<?php echo $invoice_link; ?>" target="_blank">
-                            <i class="fa fa-download" aria-hidden="true"></i>
-                          </a>
+                            <?php
+                            $invoiceFiles = $row_assets['invoice'];
+
+                            if (!empty($invoiceFiles)) {
+
+                                $attachments = explode(',', $invoiceFiles);
+
+                                foreach ($attachments as $file) {
+
+                                    $file = trim($file);
+                                    $file = explode('?', $file)[0]; // remove timestamp if exists
+                                    $ext  = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+
+                                    if (in_array($ext, ['jpg','jpeg','png','gif'])) {
+                                        echo '<a href="'.$file.'" target="_blank">
+                                                <img src="'.$file.'" 
+                                                    width="50" height="60"
+                                                    style="margin:3px; border:1px solid #ccc;">
+                                                </a>';
+                                    } elseif ($ext == 'pdf') {
+                                        echo '<a href="'.$file.'" target="_blank" 
+                                                style="margin:3px; display:inline-block;">
+                                                ?? PDF
+                                                </a><br>';
+                                    } elseif (in_array($ext, ['doc','docx'])) {
+                                        echo '<a href="'.$file.'" target="_blank" 
+                                                style="margin:3px; display:inline-block;">
+                                                ?? WORD
+                                                </a><br>';
+                                    } elseif (in_array($ext, ['xls','xlsx'])) {
+                                        echo '<a href="'.$file.'" target="_blank" 
+                                                style="margin:3px; display:inline-block;">
+                                                ?? EXCEL
+                                                </a><br>';
+                                    } else {
+                                        echo '<a href="'.$file.'" target="_blank">
+                                                View File
+                                                </a><br>';
+                                    }
+                                }
+
+                            } else {
+                                echo "<span class='text-muted'>No File</span>";
+                            }
+                            ?>
                         </center>
-                      </td>
-                      
+                        </td>
+
                       <!-- Status of the report (Approved or Not Approved) -->
                       <td>
                         <?php
@@ -375,11 +440,16 @@ exit;
                     <th></th>
                     <th>S/N:</th>
                     <th>PLANT NO:</th>
+                    <th>REF NO:</th>
                     <th>SITE:</th>
                     <th>DESCRIPTION:</th>
                     <th>AMOUNT:</th>
+                    <th>SUPPLIER/ACCT NAME:</th>
+                    <th>BANK:</th>
+                    <th>ACCT NO:</th>
                     <th>DATE:</th>
                     <th>PREPARED BY:</th>
+                    <th>AUTH BY:</th>
                     <th>INVOICE:</th>
                     <th>STATUS:</th>
                     <th>ACTION</th>
